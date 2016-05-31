@@ -30,3 +30,12 @@ proguard/
 
 # Android Studio captures folder
 captures/
+/.idea/
+/build/
+/app/build/
+/http/build/
+/app/app.iml
+/http/http.iml
+/GaiaHttp.iml
+/gradle.properties
+/samples.iml
