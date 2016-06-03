@@ -8,7 +8,7 @@ import okhttp3.Response;
 
 /**
  * 网络请求队列代理
- *
+ * <p/>
  * Created by zhenguo on 6/2/16.
  */
 public class RequestQueueProxy {
@@ -31,19 +31,19 @@ public class RequestQueueProxy {
 
     public void add(final BaseRequest request) {
         mCall = mOkHttpClient.newCall(request.getRequestProxy().getRequest());
-            mCall.enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    request.getRequestListener().onError(call.toString());
-                    request.getRequestListener().onStop();
-                }
+        mCall.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                request.getRequestListener().onError(call.toString());
+                request.getRequestListener().onStop();
+            }
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    request.getRequestListener().onResponse(response.body().string());
-                    request.getRequestListener().onStop();
-                }
-            });
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                request.getRequestListener().onResponse(response.body().string());
+                request.getRequestListener().onStop();
+            }
+        });
     }
 
     public void remove(String tag) {

@@ -12,10 +12,25 @@ public class BaseRequest<T> {
 
     private Context mContext;
     private String url;
+    /**
+     * 参数
+     */
     private Map<String, String> mParams;
+    /**
+     * 回调
+     */
     private BaseRequestListener<T> mRequestListener;
+    /**
+     * 请求方式
+     */
     private int mMethod = BaseRequest.Method.GET;
+    /**
+     * 请求 TAG
+     */
     private String mTag;
+    /**
+     * HTTP 请求 Header
+     */
     private Map<String, String> mHeader;
 
     private RequestProxy mRequestProxy;
@@ -25,6 +40,9 @@ public class BaseRequest<T> {
         mRequestProxy = new RequestProxy(this);
     }
 
+    /**
+     * 发送请求
+     */
     public void send() {
         if (mRequestListener != null) {
             mRequestListener.onStart();

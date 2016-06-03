@@ -10,7 +10,7 @@ import okhttp3.RequestBody;
 import org.json.JSONObject;
 
 /**
- * 网络请求代理
+ * 网络请求代理，实现具体请求逻辑处理
  * <p/>
  * Created by zhenguo on 6/2/16.
  */
